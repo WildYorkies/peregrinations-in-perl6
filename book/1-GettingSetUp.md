@@ -17,7 +17,7 @@ to have you download and use Rakudo for this book.
 Rakudo Star is a packaged up version of the Rakudo compiler. It makes
 for an easy way to get Rakudo.
 
-Go to this page and follow the download/install steps: 
+[Go to this page](http://rakudo.org/how-to-get-rakudo/) and follow the download/install steps.
 
 ## Testing your installation
 
