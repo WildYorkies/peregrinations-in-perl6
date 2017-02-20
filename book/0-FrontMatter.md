@@ -1,4 +1,4 @@
-# Peregrinations of Perl6 for the Perpetual Pupil
+# Peregrinations in Perl6 for the Perpetual Pupil
 
 ## Audience
 
