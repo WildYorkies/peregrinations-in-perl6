@@ -16,7 +16,7 @@ Receive a package and return it, either as a Blob if :bin was passed, or a Str i
 Fails if the socket is not connected.
 ```
 
-The `recv` method tell us that a socket can recieve, or read, data.
+The `recv` method tell us that a socket can receive, or read, data.
 
 ```perl6
 method print(IO::Socket:D: Str(Cool) $string)
@@ -40,7 +40,7 @@ Fails if the socket is not connected.
 
 And finally, `close` tells us that a socket can be closed (and implies that it can be opened!).
 
-What these methods don't tell us is from and to where these sockets recieve and send data.
+What these methods don't tell us is from and to where these sockets receive and send data.
 
 The answer is _other sockets_.
 
@@ -68,13 +68,13 @@ loop {
 The `$listen` variable holds a TCP Socket object that is currently listening on your localhost (your own computer).
 
 So we have an open socket. What should we do with it? Well, plug it into another socket so that it can send and
-recieve data!
+receive data!
 
 Until we force quit the process, this loop will keep going, non-stop. On every iteration of the loop it does
 the following:
 
 1. Finds and accepts a connection (another socket). Assign the connection to `$conn`.
-2. While the other socket has information to send, recieve the info, and write it back to the socket.
+2. While the other socket has information to send, receive the info, and write it back to the socket.
 3. Close the connection with the other socket.
 
 Now to test our socket above, we must create a socket that "plugs into" or connects with it.
