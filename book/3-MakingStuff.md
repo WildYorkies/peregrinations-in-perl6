@@ -14,6 +14,8 @@ scripts vs modules
 
 ## Modules
 
+https://docs.perl6.org/language/modules#Distributing_Modules
+
 ### what is a package?
 
 A package is a collection of code stuff.
