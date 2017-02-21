@@ -1,42 +1,8 @@
 # In Which I Show You the Ropes
 
-## Syntax
+Firstly, read through http://perl6intro.com 
 
-## Interesting idioms
-
-### gather/take
-
-instead of loop push, use gather/take
-
-### multiple dispatch
-
-instead of one function with a ton of if/else logic, write multiple
-functions that take different parameters
-
-### ranges
-
-^$number
-
-1..$number
-
-1,3,5, ... ^100
-
-## Objects
-
-Perl6 is fundamentally an Object-Oriented language. I know a lot of bad things have been said about object oriented
-languages in the last number of years, but don't drink too much kool-aid.
-
-Perl6 handles object-orientation in just about the cleanest way I've ever seen. Not to mention, it makes writing
-good OO code feel easy. Your objects naturally want to remain encapsulated so you don't have all sorts of
-crazy state changes happening left and right.
-
-Okay, I'll stop talking and show you the basics.
-
-https://docs.perl6.org/language/classtut
-
-```perl6
-example-code
-```
+When you've fully browsed that site, come back.
 
 ## Reading Documentation
 
