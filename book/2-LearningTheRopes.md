@@ -32,6 +32,8 @@ crazy state changes happening left and right.
 
 Okay, I'll stop talking and show you the basics.
 
+https://docs.perl6.org/language/classtut
+
 ```perl6
 example-code
 ```
