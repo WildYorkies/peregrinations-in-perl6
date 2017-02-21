@@ -23,6 +23,19 @@ functions that take different parameters
 
 ## Objects
 
+Perl6 is fundamentally an Object-Oriented language. I know a lot of bad things have been said about object oriented
+languages in the last number of years, but don't drink too much kool-aid.
+
+Perl6 handles object-orientation in just about the cleanest way I've ever seen. Not to mention, it makes writing
+good OO code feel easy. Your objects naturally want to remain encapsulated so you don't have all sorts of
+crazy state changes happening left and right.
+
+Okay, I'll stop talking and show you the basics.
+
+```perl6
+example-code
+```
+
 ## Reading Documentation
 
 I'm going to throw you into the deep end with Perl6, so you'll need a companion on this
