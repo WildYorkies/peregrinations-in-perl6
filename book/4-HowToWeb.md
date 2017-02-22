@@ -299,7 +299,7 @@ way to program our soda machine sockets.
 ### class IO::Socket::Async
 
 ```perl6
-# soda-machine socket
+# soda-machine code
 react {
     whenever IO::Socket::Async.listen('localhost', 3333) -> $human {
         whenever $human.Supply(:bin) -> $money {
@@ -308,25 +308,25 @@ react {
     }
 }
 ```
-
-I don't even get how this client works down here...
 ```perl6
-# human socket
-await IO::Socket::Async.connect('localhost', 3333).then( -> $p {
-    if $p.status {
-        given $p.result {
-            .print('Hello, Perl 6');
+# human code
+await IO::Socket::Async.connect('localhost', 3333).then( -> $promise {
+    if $promise.status {
+        given $promise.result -> $soda-machine {
+            $soda-machine.print('4 quarters');
             react {
-                whenever .Supply() -> $v {
-                    $v.say;
+                whenever $soda-machine.Supply() -> $response {
+                    $response.say;
                     done;
                 }
             }
-            .close;
+            $soda-machine.close;
         }
     }
 });
 ```
+
+
 
 ## You Knew It Had To Be Easier or; Frameworks
 
