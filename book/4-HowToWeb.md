@@ -246,8 +246,8 @@ my HTTP::Server::Threaded $soda-machine .=new;
 
 serve $soda-machine;
 
-route '/:whatever', sub($req, $res) {
-  $res.close($req.params<whatever>);
+route '/:money', sub($req, $res) {
+  $res.close($req.params<money>);
 }
 
 $soda-machine.listen;
