@@ -271,7 +271,64 @@ quarters right back to the human. Let's try to build a _working_ soda machine in
 Remember that a client is just a socket that is meant for connecting. A server is a socket that is meant for
 listening and accepting connections.
 
-### You Knew It Had To Be Easier or; Frameworks
+## Return of the Sockets: Async Edition
+
+Now that you have a semi-okay grasp of what is going on with servers and clients, let's back up all the way
+to the beginning.
+
+In the computer science field, you may have heard of words like parallelism, concurrency, or asynchrony. These
+are fancy ways of figuring out how to make things go faster and work for more people at one time.
+
+All of the code I've shown you so far has been synchronous. This means that it starts at the top and runs to
+the bottom of the code instructions (essentially). For example, our client code in our human/soda-machine example:
+
+```perl6
+# Connect to the soda-machine by creating a new socket that connects to its port
+my $human = IO::Socket::INET.new(:host<localhost>, :port(3333));
+$human.print: '4 quarters';
+say $human.recv; # OUTPUT: '4 quarters'
+$human.close;
+```
+
+What if we don't know how long it will take for the soda machine to give our money back? What if the human code runs
+before the soda machine is even turned on?
+
+There are a lot of what-ifs with synchronous code. I'm going to show you a better way. And in some ways, a more readable
+way to program our soda machine sockets.
+
+### class IO::Socket::Async
+
+```perl6
+# soda-machine socket
+react {
+    whenever IO::Socket::Async.listen('localhost', 3333) -> $human {
+        whenever $human.Supply(:bin) -> $money {
+            await $human.write: $money
+        }
+    }
+}
+```
+
+I don't even get how this client works down here...
+```perl6
+# human socket
+await IO::Socket::Async.connect('localhost', 3333).then( -> $p {
+    if $p.status {
+        given $p.result {
+            .print('Hello, Perl 6');
+            react {
+                whenever .Supply() -> $v {
+                    $v.say;
+                    done;
+                }
+            }
+            .close;
+        }
+    }
+});
+```
+
+## You Knew It Had To Be Easier or; Frameworks
 
 Clients are clients. But when it comes to servers, they come in many shapes and sizes. The varying kinds of
 servers is why the HTTP::Server/Request/Response role system is so handy. It tells us that no matter how weird a
