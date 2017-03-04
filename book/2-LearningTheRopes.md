@@ -4,6 +4,14 @@ Firstly, read through http://perl6intro.com
 
 When you've fully browsed that site, come back.
 
+## Idiomatifyer 9000
+
+In this section, we're going to show some small programs and continue to implement Perl 6 idioms until
+it is properly optimized with awesomeness. The goal is to simply get you acquainted with some of these
+features of the language.
+
+### 
+
 ## Reading Documentation
 
 I'm going to throw you into the deep end with Perl6, so you'll need a companion on this
